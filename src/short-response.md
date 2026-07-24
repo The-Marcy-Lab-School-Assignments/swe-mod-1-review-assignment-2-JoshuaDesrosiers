@@ -26,14 +26,14 @@ Part B: How would you modify the code so that reassigning `playlist2.songCount` 
 
 ### Response 1
 
-Your response...
+The console will log: `15`, This is because since playList1 is not a primitive data type it is stored in the heap, therefor all we have of it is a reference, so an assignment of a new variable to this data type will pass the reference along, not a copy.
 
 **Corrected Code:**
 
 ```js
 // fix this!
 const playlist1 = { name: "My Favorites", songCount: 10 };
-const playlist2 = playlist1;
+const playlist2 = {...playlist1};
 playlist2.songCount = 15;
 console.log(playlist1.songCount);
 ```
@@ -60,7 +60,10 @@ For each task below, identify which array method (forEach, filter, map, find, or
 
 ### Response 2
 
-Your response...
+1: Filter, we would use `filter` to choose some from all based on a condition.
+2: Find, we would use `find` to find one from all based on a condition.
+3: Reduce, we would use `Reduce` to get joint custom data.
+4: Map, we would use `map` to get a new array with a twist.
 
 ---
 
@@ -82,7 +85,7 @@ console.log(upperCaseLetters);
 
 ### Response 3
 
-Your response...
+It's almost as if 2 different people started and finished the code... or as if this was done on purpose. Any-who, higher order array methods take in callback-functions... when we pass `capitalize()` into the array we aren't actually passing it as our callback but calling it, which returns an error because nothing is passed into `(param) str:undefined` undefined has no `toUpperCase` reading. By simply removing the parenthesis we actually pass our function into our HO(array)M and therefor get the proper results.
 
 ---
 
@@ -111,4 +114,6 @@ const grandTotal = orders.reduce((sum, order) => {
 
 ### Response 4
 
-Your response...
+`grandTotal` will give us the sum of all order totals, or `135`. the 0 at the end of reduce sets off our initial accumulator value or starting reduce point (reduce usage is not limited accumulation).
+during the first iteration of reduce our sum is passed as 0, with order being `{ id: 1, total: 45 }` we then return as our new `sum` 0 + 45 and move to the next index.
+
