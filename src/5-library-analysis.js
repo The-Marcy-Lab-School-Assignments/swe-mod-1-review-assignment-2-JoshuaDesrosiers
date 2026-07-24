@@ -21,5 +21,5 @@ const totalCheckouts = books.reduce((acc,val)=>acc+val.checkouts,0);
 console.log(totalCheckouts)
 // E: Use reduce to find the highest number of checkouts any single book has received. Store this in a variable called `mostCheckouts`.
 // Hint: Start with 0 and compare each book's checkouts to your accumulator. If the book's checkouts are higher, return that number; otherwise, return the current accumulator.
-const mostCheckouts = books.reduce((acc,val)=>acc.checkouts>val.checkouts?acc:val,books[0]);
+const mostCheckouts = books.reduce((acc,val)=>val.checkouts>acc?val.checkouts:acc,0);
 console.log(mostCheckouts)
